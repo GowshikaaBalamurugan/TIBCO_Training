@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" folder="/Concepts/" name="Product" description="" GUID="7DECA002-6DE1-77AE-2C7D-1A34C3FC07B2" ownerProjectName="OrderManagement_31" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="ProductID" ownerProjectName="OrderManagement_31"/>
+  <properties name="Product_Name" ownerProjectName="OrderManagement_31"/>
+  <properties name="Price" ownerProjectName="OrderManagement_31" type="double"/>
+  <properties name="Quantity" ownerProjectName="OrderManagement_31" type="int"/>
+</element:Concept>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channel:Channel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:channel="http:///com/tibco/cep/designtime/core/model/service/channel" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" folder="/Channels/" name="JMS" description="" GUID="713830FF-0C10-4BAE-CFC6-7ECA914D3F0F" ownerProjectName="OrderManagement_31">
+  <driver configMethod="REFERENCE" reference="/SharedResources/JMS_Connection.sharedjmscon" label="JMS" channel="/">
+    <destinations name="createProduct" description="" GUID="C717CB12-9A10-0970-C9D5-61C84DABF63E" ownerProjectName="OrderManagement_31" eventURI="/Events/CreateProduct" serializerDeserializerClass="com.tibco.cep.driver.jms.serializer.MapMessageSerializer" driverConfig="//@driver">
+      <properties>
+        <properties xsi:type="designtime:SimpleProperty" name="IsJSONPayload" value="false"/>
+        <properties xsi:type="designtime:SimpleProperty" name="IncludeEventType" value="ALWAYS"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Queue" value="true"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Name" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="Selector" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="DeliveryMode" value="2"/>
+        <properties xsi:type="designtime:SimpleProperty" name="AckMode" value="23"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Priority" value="4"/>
+        <properties xsi:type="designtime:SimpleProperty" name="TTL" value="0"/>
+        <properties xsi:type="designtime:SimpleProperty" name="DurableSuscriberName" value="%%Deployment%%:%%EngineName%%:%%SessionName%%:%%ChannelURI%%:%%DestinationName%%"/>
+        <properties xsi:type="designtime:SimpleProperty" name="SharedSubscriptionName" value=""/>
+      </properties>
+    </destinations>
+    <destinations name="login" description="" GUID="A882BC75-FD2D-D877-BB5D-EE29E42FF36C" ownerProjectName="OrderManagement_31" eventURI="/Events/Login" serializerDeserializerClass="com.tibco.cep.driver.jms.serializer.BytesMessageSerializer" driverConfig="//@driver">
+      <properties>
+        <properties xsi:type="designtime:SimpleProperty" name="IsJSONPayload" value="false"/>
+        <properties xsi:type="designtime:SimpleProperty" name="IncludeEventType" value="ALWAYS"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Queue" value="true"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Name" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="Selector" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="DeliveryMode" value="2"/>
+        <properties xsi:type="designtime:SimpleProperty" name="AckMode" value="23"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Priority" value="4"/>
+        <properties xsi:type="designtime:SimpleProperty" name="TTL" value="0"/>
+        <properties xsi:type="designtime:SimpleProperty" name="DurableSuscriberName" value="%%Deployment%%:%%EngineName%%:%%SessionName%%:%%ChannelURI%%:%%DestinationName%%"/>
+        <properties xsi:type="designtime:SimpleProperty" name="SharedSubscriptionName" value=""/>
+      </properties>
+    </destinations>
+    <driverType xsi:type="channel:DriverTypeInfo" driverTypeName="JMS"/>
+  </driver>
+</channel:Channel>

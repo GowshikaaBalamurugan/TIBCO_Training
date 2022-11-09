@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cluster xmlns="http://tibco.com/businessevents/configuration/6.2">
+    <revision>
+        <version>40</version>
+        <author>Gowsh</author>
+        <date>2022/11/09 15:46:32</date>
+        <comment/>
+    </revision>
+    <name>clustercdd</name>
+    <message-encoding>UTF-8</message-encoding>
+    <provider/>
+    <object-management>
+        <memory-manager/>
+        <db-concepts>
+            <db-uris>
+                <uri>/SharedResources/Test_JDBC.sharedjdbc</uri>
+            </db-uris>
+            <check-interval>60</check-interval>
+            <inactivity-timeout>0</inactivity-timeout>
+            <initial-size>5</initial-size>
+            <max-size>5</max-size>
+            <min-size>5</min-size>
+            <property-check-interval>900</property-check-interval>
+            <retry-count>-1</retry-count>
+            <wait-timeout>1</wait-timeout>
+        </db-concepts>
+    </object-management>
+    <telemetry-config>
+        <service-name>default</service-name>
+        <sampler>always_on</sampler>
+        <traceidratio>1.0</traceidratio>
+        <propagators>tracecontext</propagators>
+        <no-trace-uris/>
+        <span-exporter>
+            <type>none</type>
+        </span-exporter>
+    </telemetry-config>
+    <rulesets>
+        <rules id="all-rules">
+            <uri>/</uri>
+        </rules>
+    </rulesets>
+    <function-groups>
+        <functions id="all-functions">
+            <uri>/</uri>
+        </functions>
+    </function-groups>
+    <destination-groups>
+        <destinations id="orderManagement">
+            <destination id="createUser_1B6ED227">
+                <pre-processor/>
+                <queue-size>0</queue-size>
+                <thread-count/>
+                <threading-model>shared-queue</threading-model>
+                <thread-affinity-rule-function/>
+                <uri>/Channels/HTTP/createUser</uri>
+            </destination>
+            <destination id="login_3C70BA3">
+                <pre-processor/>
+                <queue-size>0</queue-size>
+                <thread-count/>
+                <threading-model>shared-queue</threading-model>
+                <thread-affinity-rule-function/>
+                <uri>/Channels/JMS/login</uri>
+            </destination>
+            <destination id="product_CE99596">
+                <pre-processor/>
+                <queue-size>0</queue-size>
+                <thread-count/>
+                <threading-model>shared-queue</threading-model>
+                <thread-affinity-rule-function/>
+                <uri>/Channels/HTTP/product</uri>
+            </destination>
+            <destination id="createOrder_B2F60F7">
+                <pre-processor/>
+                <queue-size>0</queue-size>
+                <thread-count/>
+                <threading-model>shared-queue</threading-model>
+                <thread-affinity-rule-function/>
+                <uri>/Channels/HTTP/createOrder</uri>
+            </destination>
+            <destination id="logout_63505598">
+                <pre-processor/>
+                <queue-size>0</queue-size>
+                <thread-count/>
+                <threading-model>shared-queue</threading-model>
+                <thread-affinity-rule-function/>
+                <uri>/Channels/HTTP/logout</uri>
+            </destination>
+            <destination id="createProduct_47E4F0DE">
+                <pre-processor/>
+                <queue-size>0</queue-size>
+                <thread-count/>
+                <threading-model>shared-queue</threading-model>
+                <thread-affinity-rule-function/>
+                <uri>/Channels/JMS/createProduct</uri>
+            </destination>
+        </destinations>
+    </destination-groups>
+    <process-groups/>
+    <log-configs>
+        <log-config id="logConfig">
+            <enabled>true</enabled>
+            <roles>*:info</roles>
+            <files>
+                <enabled>true</enabled>
+                <dir>logs</dir>
+                <name/>
+                <max-number>10</max-number>
+                <max-size>5000000</max-size>
+                <append>true</append>
+            </files>
+            <terminal>
+                <enabled/>
+                <sys-out-redirect>false</sys-out-redirect>
+                <sys-err-redirect>false</sys-err-redirect>
+                <encoding/>
+            </terminal>
+            <line-layout>
+                <enabled>false</enabled>
+                <class/>
+                <arg/>
+            </line-layout>
+        </log-config>
+    </log-configs>
+    <agent-classes>
+        <inference-agent-class id="inference-class">
+            <rules>
+                <ref>all-rules</ref>
+            </rules>
+            <destinations>
+                <ref>orderManagement</ref>
+            </destinations>
+            <startup/>
+            <shutdown/>
+            <local-cache>
+                <eviction>
+                    <max-size>1024</max-size>
+                    <max-time>900</max-time>
+                </eviction>
+            </local-cache>
+            <shared-queue>
+                <size>1024</size>
+                <workers>10</workers>
+            </shared-queue>
+            <load>
+                <max-active/>
+            </load>
+            <concurrent-rtc>false</concurrent-rtc>
+            <check-for-duplicates>false</check-for-duplicates>
+            <businessworks>
+                <uri/>
+            </businessworks>
+            <property-group/>
+        </inference-agent-class>
+        <cache-agent-class id="cache-class">
+            <property-group/>
+        </cache-agent-class>
+    </agent-classes>
+    <processing-units>
+        <processing-unit id="default">
+            <agents>
+                <agent>
+                    <ref>inference-class</ref>
+                    <key/>
+                    <priority/>
+                </agent>
+            </agents>
+            <logs>logConfig</logs>
+            <hot-deploy>true</hot-deploy>
+            <cache-storage-enabled>false</cache-storage-enabled>
+            <db-concepts>true</db-concepts>
+            <property-group/>
+        </processing-unit>
+        <processing-unit id="cache">
+            <agents>
+                <agent>
+                    <ref>cache-class</ref>
+                    <key/>
+                    <priority/>
+                </agent>
+            </agents>
+            <logs>logConfig</logs>
+            <hot-deploy>false</hot-deploy>
+            <cache-storage-enabled>true</cache-storage-enabled>
+            <db-concepts>false</db-concepts>
+            <property-group/>
+        </processing-unit>
+    </processing-units>
+    <load-balancer-configs>
+        <pair-configs/>
+        <adhoc-configs/>
+    </load-balancer-configs>
+    <property-group>
+        <property-group comment="" name="cluster-level properties">
+            <property-group comment="" name="auth">
+                <property name="be.mm.auth.type" value="file"/>
+                <property name="be.mm.auth.file.location" value="C:/tibco/be/6.2/mm/config/users.pwd"/>
+                <property name="java.security.auth.login.config" value="C:/tibco/be/6.2/mm/config/jaas-config.config"/>
+            </property-group>
+        </property-group>
+    </property-group>
+</cluster>

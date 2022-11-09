@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="CreateOrder" description="" GUID="68656287-C03D-0C8D-6F34-D29214072DDA" ownerProjectName="OrderManagement_31" payloadString="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&#xA;&lt;payload ref=&quot;pfx:Order&quot;/>" ttlUnits="Seconds" channelURI="/Channels/HTTP" destinationName="createOrder">
+  <namespaceEntries prefix="xsd" namespace="http://www.w3.org/2001/XMLSchema"/>
+  <namespaceEntries prefix="pfx" namespace="http://www.example.org/ProductContainedConcept"/>
+  <registryImportEntries location="schema/ProductContainedConcept.xsd" namespace="http://www.example.org/ProductContainedConcept"/>
+  <registryImportEntries location="schema/ProductContainedConcept.xsd" namespace="http://www.example.org/ProductContainedConcept"/>
+  <expiryAction name="CreateOrder_expiryAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="createorder" type="/Events/CreateOrder"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

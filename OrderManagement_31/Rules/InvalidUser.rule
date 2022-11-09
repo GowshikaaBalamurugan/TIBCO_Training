@@ -1,0 +1,21 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.InvalidUser {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		Events.Login eLogin;
+		
+	}
+	when {
+		
+	}
+	then {
+		System.debugOut("Invalid User");
+		Event.consumeEvent(eLogin);
+	}
+}

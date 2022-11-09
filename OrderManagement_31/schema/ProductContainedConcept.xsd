@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/ProductContainedConcept" xmlns:tns="http://www.example.org/ProductContainedConcept" elementFormDefault="qualified">
+
+
+    <element name="Order" type="tns:OrderType"></element>
+
+
+    <complexType name="OrderType">
+    	<sequence>
+    		<element name="OrderID" type="string"></element>
+    		<element name="Status" type="string"></element>
+    		<element name="Product" type="tns:ProductType"
+    			maxOccurs="unbounded" minOccurs="1"></element>
+    		<element name="UserID" type="string"></element>
+    		</sequence>
+    </complexType>
+
+    <complexType name="ProductType">
+    <sequence>
+    	<element name="ProductID" type="string"></element>
+    	<element name="Product_Name" type="string"></element>
+    	<element name="Price" type="double"></element>
+    	<element name="Quantity" type="int"></element>
+    </sequence>
+    </complexType>
+</schema>

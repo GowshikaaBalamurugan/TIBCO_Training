@@ -1,0 +1,20 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.UserAlreadyExists {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		Events.CreateUser eCreateuser;
+	}
+	when {
+		
+	}
+	then {
+		System.debugOut("User Already Exists");
+		Event.consumeEvent(eCreateuser);
+	}
+}

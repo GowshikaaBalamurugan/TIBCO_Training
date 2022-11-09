@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="Login" description="" GUID="D207BA26-4681-A88B-2319-1229C6188A51" ownerProjectName="OrderManagement_31" superEventPath="" ttlUnits="Seconds">
+  <properties name="UserID" ownerProjectName="OrderManagement_31"/>
+  <properties name="password" ownerProjectName="OrderManagement_31"/>
+  <expiryAction name="Login_expiryAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="login" type="/Events/Login"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

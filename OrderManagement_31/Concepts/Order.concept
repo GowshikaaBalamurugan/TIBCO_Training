@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" folder="/Concepts/" name="Order" description="" GUID="21EC32E0-ABD9-1F2A-6216-03497A1D34C8" ownerProjectName="OrderManagement_31" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="OrderID" ownerProjectName="OrderManagement_31"/>
+  <properties name="Product" ownerProjectName="OrderManagement_31" type="ContainedConcept" conceptTypePath="/Concepts/Product" array="true"/>
+  <properties name="Status" ownerProjectName="OrderManagement_31"/>
+  <properties name="UserID" ownerProjectName="OrderManagement_31"/>
+  <stateMachinePaths>/Concepts/Order_SM</stateMachinePaths>
+</element:Concept>

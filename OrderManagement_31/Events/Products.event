@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="Products" description="" GUID="4415DFD6-3D04-8BB7-C876-E173E0368871" ownerProjectName="OrderManagement_31" superEventPath="" ttlUnits="Seconds">
+  <properties name="Product_ID" ownerProjectName="OrderManagement_31"/>
+  <properties name="Quantity" ownerProjectName="OrderManagement_31" type="int"/>
+  <properties name="Product_Name" ownerProjectName="OrderManagement_31"/>
+  <properties name="Price" ownerProjectName="OrderManagement_31" type="double"/>
+  <expiryAction name="Products_expiryAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="products" type="/Events/Products"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:TimeEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="deliveroutOrder" description="" GUID="0A07534C-DF7E-6BE1-A916-FFA0FBB2771B" ownerProjectName="OrderManagement_31" type="TimeEvent" superEventPath=""/>

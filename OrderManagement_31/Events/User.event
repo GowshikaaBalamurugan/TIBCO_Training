@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="User" description="" GUID="8CF95541-AD11-9B72-AF48-5FC450283BC2" ownerProjectName="OrderManagement_31" superEventPath="" ttlUnits="Seconds">
+  <properties name="UserID" ownerProjectName="OrderManagement_31"/>
+  <properties name="UserName" ownerProjectName="OrderManagement_31"/>
+  <properties name="Address" ownerProjectName="OrderManagement_31"/>
+  <properties name="password" ownerProjectName="OrderManagement_31"/>
+  <expiryAction name="User_expiryAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="user" type="/Events/User"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

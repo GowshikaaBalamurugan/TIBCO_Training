@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="Logout" description="" GUID="9FD2813F-C872-939F-2CDD-CD706A4214F7" ownerProjectName="OrderManagement_31" superEventPath="" ttlUnits="Seconds">
+  <expiryAction name="Logout_expiryAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="logout" type="/Events/Logout"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

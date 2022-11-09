@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" folder="/Database/test/dbo/" name="Users" description="" GUID="96833229-BA50-8380-BD85-22218EFBF419" ownerProjectName="OrderManagement_31">
+  <extendedProperties>
+    <properties xsi:type="designtime:SimpleProperty" name="SCHEMA_NAME" value="dbo"/>
+    <properties xsi:type="designtime:SimpleProperty" name="OBJECT_NAME" value="Users"/>
+    <properties xsi:type="designtime:SimpleProperty" name="OBJECT_TYPE" value="T"/>
+    <properties xsi:type="designtime:SimpleProperty" name="PRIMARY_KEY_PROPS" value="[UserID]"/>
+    <properties xsi:type="designtime:SimpleProperty" name="JDBC_RESOURCE" value="/SharedResources/Test_JDBC.sharedjdbc"/>
+  </extendedProperties>
+  <properties name="UserID" ownerProjectName="OrderManagement_31">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="UserID"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="nvarchar"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="50"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="50"/>
+    </extendedProperties>
+  </properties>
+  <properties name="UserName" ownerProjectName="OrderManagement_31">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="UserName"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="nvarchar"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="50"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="50"/>
+    </extendedProperties>
+  </properties>
+  <properties name="Address" ownerProjectName="OrderManagement_31">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="Address"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="nvarchar"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="50"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="50"/>
+    </extendedProperties>
+  </properties>
+  <properties name="password" ownerProjectName="OrderManagement_31">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="password"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="nchar"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="10"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="10"/>
+    </extendedProperties>
+  </properties>
+</element:Concept>

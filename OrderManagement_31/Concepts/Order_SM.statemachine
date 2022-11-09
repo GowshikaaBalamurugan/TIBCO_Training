@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<states:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" xmlns:states="http:///com/tibco/cep/designtime/core/model/states" folder="/Concepts/" name="Order_SM" description="" GUID="DF31163C-BEE9-FBC2-B869-BB6CE59967ED" ownerProjectName="OrderManagement_31" ownerConceptPath="/Concepts/Order">
+  <extendedProperties>
+    <properties xsi:type="designtime:ObjectProperty" name="Backing Store">
+      <value xsi:type="designtime:PropertyMap">
+        <properties xsi:type="designtime:SimpleProperty" name="Table Name" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="Type Name" value=""/>
+        <properties xsi:type="designtime:SimpleProperty" name="hasBackingStore" value="true"/>
+      </value>
+    </properties>
+    <properties xsi:type="designtime:ObjectProperty" name="Cache">
+      <value xsi:type="designtime:PropertyMap">
+        <properties xsi:type="designtime:SimpleProperty" name="Constant [true | false]" value="false"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Check for Version [true | false]" value="true"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Is Cache Limited[true | false]" value="true"/>
+        <properties xsi:type="designtime:SimpleProperty" name="Evict From Cache on Update [true | false]" value="true"/>
+      </value>
+    </properties>
+  </extendedProperties>
+  <timeoutAction name="Order_SM_timeoutAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="order" type="/Concepts/Order"/>
+    </symbols>
+  </timeoutAction>
+  <timeoutExpression name="Order_SM_timeoutExpression" ownerProjectName="OrderManagement_31" returnType="long" actionText="return 0;" conditionText="" validity="CONDITION">
+    <symbols>
+      <symbolList idName="order" type="/Concepts/Order"/>
+    </symbols>
+  </timeoutExpression>
+  <stateEntities xsi:type="states:StateStart" name="Start" GUID="0124CCC9-8EEA-A646-8074-0785B56DCF78" ownerStateMachinePath="/Concepts/Order_SM" outgoingTransitions="//@stateTransitions.0">
+    <extendedProperties>
+      <properties xsi:type="designtime:ObjectProperty" name="Backing Store">
+        <value xsi:type="designtime:PropertyMap">
+          <properties xsi:type="designtime:SimpleProperty" name="Column Name" value=""/>
+        </value>
+      </properties>
+      <properties xsi:type="designtime:SimpleProperty" name="index" value="false"/>
+    </extendedProperties>
+    <exitAction name="Order_SM_Start_exitAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </exitAction>
+    <timeoutExpression name="Order_SM_Start_timeoutExpression" ownerProjectName="OrderManagement_31" returnType="long" actionText="return 0;" conditionText="" validity="CONDITION">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutExpression>
+  </stateEntities>
+  <stateEntities xsi:type="states:StateEnd" name="End" GUID="63CABF41-C50A-C222-5A7A-98010FBA0829" ownerStateMachinePath="/Concepts/Order_SM" incomingTransitions="//@stateTransitions.4">
+    <extendedProperties>
+      <properties xsi:type="designtime:ObjectProperty" name="Backing Store">
+        <value xsi:type="designtime:PropertyMap">
+          <properties xsi:type="designtime:SimpleProperty" name="Column Name" value=""/>
+        </value>
+      </properties>
+      <properties xsi:type="designtime:SimpleProperty" name="index" value="false"/>
+    </extendedProperties>
+    <entryAction name="Order_SM_End_entryAction" ownerProjectName="OrderManagement_31" actionText="Instance.deleteInstance(order);" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </entryAction>
+    <timeoutExpression name="Order_SM_End_timeoutExpression" ownerProjectName="OrderManagement_31" returnType="long" actionText="return 0;" conditionText="" validity="CONDITION">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutExpression>
+  </stateEntities>
+  <stateEntities xsi:type="states:StateSimple" name="CreateOrder" GUID="499F686B-05EA-C4F1-9794-0F345FCAF2FC" incomingTransitions="//@stateTransitions.0" outgoingTransitions="//@stateTransitions.1">
+    <extendedProperties>
+      <properties xsi:type="designtime:ObjectProperty" name="Backing Store">
+        <value xsi:type="designtime:PropertyMap">
+          <properties xsi:type="designtime:SimpleProperty" name="Column Name" value=""/>
+        </value>
+      </properties>
+      <properties xsi:type="designtime:SimpleProperty" name="index" value="false"/>
+    </extendedProperties>
+    <entryAction name="Order_SM_CreateOrder_entryAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;InStateMachine&quot;;&#xD;&#xA;System.debugOut(&quot;Creating Order...&quot;+order.Status);" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </entryAction>
+    <exitAction name="Order_SM_CreateOrder_exitAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;Order Placed&quot;;&#xD;&#xA;System.debugOut(order.Status+ &quot; for &quot;+order.UserID);&#xD;&#xA;" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </exitAction>
+    <timeoutAction name="Order_SM_CreateOrder_timeoutAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutAction>
+    <timeoutExpression name="Order_SM_CreateOrder_timeoutExpression" ownerProjectName="OrderManagement_31" returnType="long" actionText="return 0;" conditionText="" validity="CONDITION">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutExpression>
+  </stateEntities>
+  <stateEntities xsi:type="states:StateSimple" name="ProcessState" GUID="498D6191-1CFF-3AF1-890C-72E06F647952" incomingTransitions="//@stateTransitions.1" outgoingTransitions="//@stateTransitions.2" timeoutStateGUID="498D6191-1CFF-3AF1-890C-72E06F647952" timeoutState="//@stateEntities.3">
+    <extendedProperties>
+      <properties xsi:type="designtime:ObjectProperty" name="Backing Store">
+        <value xsi:type="designtime:PropertyMap">
+          <properties xsi:type="designtime:SimpleProperty" name="Column Name" value=""/>
+        </value>
+      </properties>
+      <properties xsi:type="designtime:SimpleProperty" name="index" value="false"/>
+    </extendedProperties>
+    <entryAction name="Order_SM_ProcessState_entryAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;InStateMachine&quot;;&#xD;&#xA;System.debugOut(&quot;Order is getting ready for delivery...&quot;+order.Status);" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </entryAction>
+    <exitAction name="Order_SM_ProcessState_exitAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;Order Processed and Dispatched&quot;;&#xD;&#xA;System.debugOut(order.Status+ &quot; for &quot;+order.UserID);&#xD;&#xA;" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </exitAction>
+    <timeoutAction name="Order_SM_ProcessState_timeoutAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutAction>
+    <timeoutExpression name="Order_SM_ProcessState_timeoutExpression" ownerProjectName="OrderManagement_31" returnType="long" actionText="return 0;" conditionText="" validity="CONDITION">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutExpression>
+  </stateEntities>
+  <stateEntities xsi:type="states:StateSimple" name="OutForDelivery" GUID="A854AB69-2FCD-146A-A540-8558CDE457AC" incomingTransitions="//@stateTransitions.2" outgoingTransitions="//@stateTransitions.3">
+    <extendedProperties>
+      <properties xsi:type="designtime:ObjectProperty" name="Backing Store">
+        <value xsi:type="designtime:PropertyMap">
+          <properties xsi:type="designtime:SimpleProperty" name="Column Name" value=""/>
+        </value>
+      </properties>
+      <properties xsi:type="designtime:SimpleProperty" name="index" value="false"/>
+    </extendedProperties>
+    <entryAction name="Order_SM_OutForDelivery_entryAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;InStateMachine&quot;;&#xD;&#xA;System.debugOut(&quot;Order is out for delivery and about to be delivered...&quot;+order.Status);" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </entryAction>
+    <exitAction name="Order_SM_OutForDelivery_exitAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;Out For Delivery&quot;;&#xD;&#xA;System.debugOut(order.Status+ &quot; for &quot;+order.UserID);&#xD;&#xA;" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </exitAction>
+    <timeoutAction name="OutForDeliveryrder_SM_OutForDelivery_timeoutAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutAction>
+    <timeoutExpression name="OutForDeliveryrder_SM_OutForDelivery_timeoutExpression" ownerProjectName="OrderManagement_31" returnType="long" actionText="return 0;" conditionText="" validity="CONDITION">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutExpression>
+  </stateEntities>
+  <stateEntities xsi:type="states:StateSimple" name="Delivered" GUID="F3E38C15-622C-E0AC-4528-BE51CD70B598" incomingTransitions="//@stateTransitions.3" outgoingTransitions="//@stateTransitions.4">
+    <extendedProperties>
+      <properties xsi:type="designtime:ObjectProperty" name="Backing Store">
+        <value xsi:type="designtime:PropertyMap">
+          <properties xsi:type="designtime:SimpleProperty" name="Column Name" value=""/>
+        </value>
+      </properties>
+      <properties xsi:type="designtime:SimpleProperty" name="index" value="false"/>
+    </extendedProperties>
+    <entryAction name="Order_SM_Delivered_entryAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;Out For Delivery&quot;;" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </entryAction>
+    <exitAction name="Order_SM_Delivered_exitAction" ownerProjectName="OrderManagement_31" actionText="order.Status=&quot;Delivered&quot;;&#xD;&#xA;System.debugOut(order.Status+ &quot; for &quot;+order.UserID);&#xD;&#xA;" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </exitAction>
+    <timeoutAction name="Order_SM_Delivered_timeoutAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutAction>
+    <timeoutExpression name="Order_SM_Delivered_timeoutExpression" ownerProjectName="OrderManagement_31" returnType="long" actionText="return 0;" conditionText="" validity="CONDITION">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </timeoutExpression>
+  </stateEntities>
+  <stateTransitions name="Transition_0" GUID="80D856F9-E8B1-501A-3119-6F5BB14132DF" ownerProjectName="OrderManagement_31" ownerStateMachinePath="/Concepts/Order_SM" toState="//@stateEntities.2" fromState="//@stateEntities.0" lambda="true" label="">
+    <guardRule name="Order_SM_Transition_0_guardRule" ownerProjectName="OrderManagement_31" actionText="" conditionText="" priority="5">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </guardRule>
+  </stateTransitions>
+  <stateTransitions name="Transition_1" GUID="B1F6DFA7-B999-13FE-5DC6-B4EA18601912" ownerProjectName="OrderManagement_31" ownerStateMachinePath="/Concepts/Order_SM" toState="//@stateEntities.3" fromState="//@stateEntities.2" label="">
+    <guardRule name="Order_SM_Transition_1_guardRule" ownerProjectName="OrderManagement_31" actionText="" conditionText="order.Status==&quot;Order Placed&quot;;" priority="5">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </guardRule>
+  </stateTransitions>
+  <stateTransitions name="Transition_2" GUID="7946BDEA-D61D-5AA8-F5DD-8F297CD10B5F" ownerProjectName="OrderManagement_31" ownerStateMachinePath="/Concepts/Order_SM" toState="//@stateEntities.4" fromState="//@stateEntities.3" label="">
+    <guardRule name="Order_SM_Transition_2_guardRule" ownerProjectName="OrderManagement_31" actionText="" conditionText="order.Status==&quot;Order Processed and Dispatched&quot;;" priority="5">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </guardRule>
+  </stateTransitions>
+  <stateTransitions name="Transition_3" GUID="FBEF0C09-F56D-0BA8-799E-F2CE1808E101" ownerProjectName="OrderManagement_31" ownerStateMachinePath="/Concepts/Order_SM" toState="//@stateEntities.5" fromState="//@stateEntities.4" label="">
+    <guardRule name="Order_SM_Transition_3_guardRule" ownerProjectName="OrderManagement_31" actionText="" conditionText="order.Status==&quot;Out For Delivery&quot;;" priority="5">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </guardRule>
+  </stateTransitions>
+  <stateTransitions name="Transition_4" GUID="18D74F3C-7518-8E62-DC4F-815601223A73" ownerProjectName="OrderManagement_31" ownerStateMachinePath="/Concepts/Order_SM" toState="//@stateEntities.1" fromState="//@stateEntities.5" label="">
+    <guardRule name="Order_SM_Transition_4_guardRule" ownerProjectName="OrderManagement_31" actionText="" conditionText="" priority="5">
+      <symbols>
+        <symbolList idName="order" type="/Concepts/Order"/>
+      </symbols>
+    </guardRule>
+  </stateTransitions>
+</states:StateMachine>

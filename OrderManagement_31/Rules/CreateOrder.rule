@@ -1,0 +1,71 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.CreateOrder {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		
+		Events.CreateOrder e_createOrder;
+		Concepts.User cUser;
+	}
+	when {
+	}
+	then{
+		if(cUser.logedIn)
+		{
+		Concepts.Order corder=Instance.createInstance("xslt://{{/Concepts/Order}}<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" xmlns:tns=\"http://www.example.org/ProductContainedConcept\" version=\"2.0\"><xsl:param name=\"e_createOrder\"/><xsl:template name=\"Function\" match=\"/\"><createObject><object><xsl:if test=\"$e_createOrder/payload/tns:Order/tns:OrderID\"><xsl:attribute name=\"extId\"><xsl:value-of select=\"$e_createOrder/payload/tns:Order/tns:OrderID\"/></xsl:attribute></xsl:if><xsl:if test=\"$e_createOrder/payload/tns:Order/tns:OrderID\"><OrderID><xsl:value-of select=\"$e_createOrder/payload/tns:Order/tns:OrderID\"/></OrderID></xsl:if><xsl:for-each select=\"$e_createOrder/payload/tns:Order/tns:Product\"><Product><ProductID><xsl:value-of select=\"tns:ProductID\"/></ProductID><Product_Name><xsl:value-of select=\"tns:Product_Name\"/></Product_Name><Price><xsl:value-of select=\"tns:Price\"/></Price><Quantity><xsl:value-of select=\"tns:Quantity\"/></Quantity></Product></xsl:for-each><Status><xsl:value-of select=\"&quot;Order Placed&quot;\"/></Status><xsl:if test=\"$e_createOrder/payload/tns:Order/tns:UserID\"><UserID><xsl:value-of select=\"$e_createOrder/payload/tns:Order/tns:UserID\"/></UserID></xsl:if></object></createObject></xsl:template></xsl:stylesheet>");
+	Database.setCurrentConnection("/SharedResources/Test_JDBC");
+	Database.beginTransaction();
+	        	int count=0;
+	       	System.debugOut("#### DB Concept ####### ");
+		       	System.debugOut("#### DB Concept ####### ");
+	
+	       for(int i=0;i<corder.Product@length;i++)
+        {
+        	        int quantity= corder.Product[i].Quantity;
+        	        String ProductID= corder.Product[i].ProductID;
+        	        		System.debugOut("#### DB Concept ####### " );
+        	        
+        	    //Database.test.dbo.Product proConcept=Instance.createInstance("xslt://{{/Database/test/dbo/Product}}<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"2.0\"><xsl:param name=\"corder\"/><xsl:template name=\"Function\" match=\"/\"><createObject><object><xsl:if test=\"$corder/Product[&lt;&lt; Filter >>]/ProductID\"><Product_ID><xsl:value-of select=\"$corder/Product[&lt;&lt; Filter >>]/ProductID\"/></Product_ID></xsl:if><xsl:if test=\"$corder/Product[&lt;&lt; Filter >>]/Product_Name\"><Product_Name><xsl:value-of select=\"$corder/Product[&lt;&lt; Filter >>]/Product_Name\"/></Product_Name></xsl:if></object></createObject></xsl:template></xsl:stylesheet>");
+        		Database.test.dbo.Product  []ct=Database.queryUsingSQL("/Database/test/dbo/Product","select * from Product where ProductID=?ProductID",true);
+        	//Database.test.dbo.Product  ct=Database.queryUsingConceptProps(proConcept,true);
+        	System.debugOut("########Quantity vailable:"+ct[0].Quantity);
+        	    if(ct[0].Quantity<quantity){
+        	    	  System.debugOut("########Insufficient Stock for:"+ct[0].Product_Name);
+        	    	  count++;
+        	    }
+        	    else{
+		System.debugOut("#### DB Concept ####### " );
+		Database.test.dbo.Product dProduct=Instance.createInstance("xslt://{{/Database/test/dbo/Product}}<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"2.0\"><xsl:template name=\"Function\" match=\"/\"><createObject><object><xsl:if test=\"$ct/elements[&lt;&lt; Filter >>]/Quantity-$quantity &lt;&lt; operator >> \"><Quantity><xsl:value-of select=\"$ct/elements[&lt;&lt; Filter >>]/Quantity-$quantity &lt;&lt; operator >> \"/></Quantity></xsl:if></object></createObject></xsl:template></xsl:stylesheet>");
+		//Database.test.dbo.Product dProduct=Instance.createInstance("xslt://{{/Database/test/dbo/Product}}<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"2.0\"><xsl:param name=\"eProduct\"/><xsl:template name=\"Function\" match=\"/\"><createObject><object><xsl:if test=\"$eProduct/Product_ID\"><xsl:attribute name=\"extId\"><xsl:value-of select=\"$eProduct/Product_ID\"/></xsl:attribute></xsl:if><xsl:if test=\"$eProduct/Product_ID\"><Product_ID><xsl:value-of select=\"$eProduct/Product_ID\"/></Product_ID></xsl:if><xsl:if test=\"$eProduct/Product_Name\"><Product_Name><xsl:value-of select=\"$eProduct/Product_Name\"/></Product_Name></xsl:if><xsl:if test=\"$eProduct/Price\"><Price><xsl:value-of select=\"$eProduct/Price\"/></Price></xsl:if><xsl:if test=\"$eProduct/Quantity\"><Quantity><xsl:value-of select=\"$eProduct/Quantity\"/></Quantity></xsl:if></object></createObject></xsl:template></xsl:stylesheet>");
+    	System.debugOut("#### Insert into Database ####### " );
+		Database.update(dProduct);
+		System.debugOut("#### Quantity Updated for Product " + dProduct.Product_Name);
+		Database.commit();
+        	    }
+        }
+        	    if(count!=0){
+        	    	Instance.deleteInstance(corder);
+        	   		//System.debugOut("#### Created Order ");
+        	   
+        	    }
+	   // Event.consumeEvent(eProduct);	
+	Database.unsetConnection();
+		    System.debugOut("Order Created");
+		}
+		else{
+					    System.debugOut("Please Login..");
+			
+		}
+			Event.consumeEvent(e_createOrder);
+	Events.ProcessOrder.scheduleProcessOrder(90,"",0);
+		
+	}
+}
+		
+		
+	

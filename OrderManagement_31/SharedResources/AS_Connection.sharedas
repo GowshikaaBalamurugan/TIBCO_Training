@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<BWSharedResource>
+    <config>
+        <Description/>
+        <RealmServer>http://127.0.0.1:8280</RealmServer>
+        <GridName>Training1</GridName>
+        <UserName/>
+        <Password>#!YUSVW9bsP1Ip1yx/eyPvbw==</Password>
+        <useSsl>false</useSsl>
+        <ssl xmlns="http://www.tibco.com/xmlns/aemeta/services/2002">
+            <cert isRef="true"/>
+            <identity isRef="true"/>
+            <trustStorePassword>#!5alKz9Xnm2Gef7n6MBYvaw==</trustStorePassword>
+            <Trust_Type/>
+        </ssl>
+    </config>
+</BWSharedResource>

@@ -1,0 +1,20 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.triggerDeliveryRule {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		Events.triggerDelivery eTriggerDelivery;
+	Concepts.Order cOrder;
+	}
+	when {
+	}
+	then {
+        cOrder.Status="Delivered";
+        Event.consumeEvent(eTriggerDelivery);
+	}
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<BWSharedResource>
+    <name>Test_JDBC</name>
+    <resourceType>ae.shared.JDBCSharedResource</resourceType>
+    <description/>
+    <config>
+        <description/>
+        <resourceType>ae.shared.JDBCSharedResource</resourceType>
+        <driver>tibcosoftwareinc.jdbc.sqlserver.SQLServerDriver</driver>
+        <maxConnections>5</maxConnections>
+        <loginTimeout>0</loginTimeout>
+        <connectionType>JDBC</connectionType>
+        <UseSharedJndiConfig>false</UseSharedJndiConfig>
+        <location>jdbc:tibcosoftwareinc:sqlserver://127.0.0.1:1433;databaseName=test</location>
+        <user>sa</user>
+        <password>#!uAjvolGn4XEMFi+stD+8LnHjzZtXr03xKutxiBWoELs=</password>
+        <ContextFactory>com.tibco.tibjms.naming.TibjmsInitialContextFactory</ContextFactory>
+        <ProviderUrl>tibjmsnaming://localhost:7222</ProviderUrl>
+        <UserName/>
+        <UserPassword>#!WnTufRummAeqTogH9FaJMA==</UserPassword>
+        <jndiDataSourceName/>
+        <JndiSharedConfiguration/>
+        <useSsl>false</useSsl>
+        <ssl xmlns="http://www.tibco.com/xmlns/aemeta/services/2002">
+            <cert isRef="true"/>
+            <identity isRef="true"/>
+            <trustStorePassword>#!vFgsBJEdYqM3a09c6XBC/A==</trustStorePassword>
+            <requiresClientAuthentication>false</requiresClientAuthentication>
+            <verifyHostName>true</verifyHostName>
+            <expectedHostName/>
+        </ssl>
+    </config>
+</BWSharedResource>

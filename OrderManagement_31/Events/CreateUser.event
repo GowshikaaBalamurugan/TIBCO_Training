@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="CreateUser" description="" GUID="334ED1E7-CB97-EAC9-FFA3-8D4C665C3617" ownerProjectName="OrderManagement_31" superEventPath="/Events/User" ttlUnits="Seconds">
+  <expiryAction name="CreateUser_expiryAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="createuser" type="/Events/CreateUser"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

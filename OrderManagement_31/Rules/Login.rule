@@ -1,0 +1,29 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.Login {
+	attribute {
+		priority = 2;
+		forwardChain = true;
+	}
+	declare {
+		Events.Login eLogin;
+	    Concepts.User cUser;
+	}
+	when {
+		cUser@extId==eLogin.UserID;
+	}
+	then {
+		if(cUser.password==eLogin.password)
+		{
+			cUser.logedIn=true;
+			System.debugOut("Welcome "+eLogin.UserID);
+			Event.consumeEvent(eLogin);
+		}
+		else{
+			System.debugOut("Incorrect Password.. ");
+			
+	}
+	}
+}

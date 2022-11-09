@@ -1,0 +1,33 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.CreateUser {
+	attribute {
+		priority = 2;
+		forwardChain = true;
+	}
+	declare {
+		
+		Events.CreateUser eCreateuser;
+        Concepts.User cUser;
+}
+	when {
+		eCreateuser.UserID!=cUser@extId;
+	}
+	then {
+		/*Database.setCurrentConnection("/SharedResources/Test_JDBC");
+		Database.beginTransaction();
+		System.debugOut("#### DB Concept ####### " );
+		Database.test.dbo.Users dUser=Instance.createInstance("xslt://{{/Database/test/dbo/Users}}<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"2.0\"><xsl:param name=\"eCreateuser\"/><xsl:template name=\"Function\" match=\"/\"><createObject><object><xsl:if test=\"$eCreateuser/UserID\"><xsl:attribute name=\"extId\"><xsl:value-of select=\"$eCreateuser/UserID\"/></xsl:attribute></xsl:if><xsl:if test=\"$eCreateuser/UserID\"><UserID><xsl:value-of select=\"$eCreateuser/UserID\"/></UserID></xsl:if><xsl:if test=\"$eCreateuser/UserName\"><UserName><xsl:value-of select=\"$eCreateuser/UserName\"/></UserName></xsl:if><xsl:if test=\"$eCreateuser/Address\"><Address><xsl:value-of select=\"$eCreateuser/Address\"/></Address></xsl:if><xsl:if test=\"$eCreateuser/password\"><password><xsl:value-of select=\"$eCreateuser/password\"/></password></xsl:if></object></createObject></xsl:template></xsl:stylesheet>");
+		System.debugOut("#### Insert into Database ####### " );
+		Database.insert(dUser);
+		*/
+		Concepts.User.User(cUser@extId,eCreateuser.UserID,eCreateuser.UserName,eCreateuser.password,eCreateuser.Address,false);
+		System.debugOut("#### User Created..Hi  " + eCreateuser.UserName);
+		//Database.commit();
+	    Event.consumeEvent(eCreateuser);	
+	//Database.unsetConnection();
+	
+	}
+}

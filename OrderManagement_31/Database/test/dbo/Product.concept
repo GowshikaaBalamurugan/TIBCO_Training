@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:designtime="http:///com/tibco/cep/designtime/core/model/designtime_ontology.ecore" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" folder="/Database/test/dbo/" name="Product" description="" GUID="6220599F-30AC-5A88-004D-C1CDD66EC3B4" ownerProjectName="OrderManagement_31">
+  <extendedProperties>
+    <properties xsi:type="designtime:SimpleProperty" name="SCHEMA_NAME" value="dbo"/>
+    <properties xsi:type="designtime:SimpleProperty" name="OBJECT_NAME" value="Product"/>
+    <properties xsi:type="designtime:SimpleProperty" name="OBJECT_TYPE" value="T"/>
+    <properties xsi:type="designtime:SimpleProperty" name="PRIMARY_KEY_PROPS" value="[Product_ID]"/>
+    <properties xsi:type="designtime:SimpleProperty" name="JDBC_RESOURCE" value="/SharedResources/Test_JDBC.sharedjdbc"/>
+  </extendedProperties>
+  <properties name="Product_ID" ownerProjectName="OrderManagement_31">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="Product_ID"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="nvarchar"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="50"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="50"/>
+    </extendedProperties>
+  </properties>
+  <properties name="Product_Name" ownerProjectName="OrderManagement_31">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="Product_Name"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="nvarchar"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="50"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="50"/>
+    </extendedProperties>
+  </properties>
+  <properties name="Price" ownerProjectName="OrderManagement_31" type="double">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="Price"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="float"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="53"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="53"/>
+    </extendedProperties>
+  </properties>
+  <properties name="Quantity" ownerProjectName="OrderManagement_31" type="int">
+    <extendedProperties>
+      <properties xsi:type="designtime:SimpleProperty" name="COLUMN_NAME" value="Quantity"/>
+      <properties xsi:type="designtime:SimpleProperty" name="DATA_TYPE" value="int"/>
+      <properties xsi:type="designtime:SimpleProperty" name="LENGTH" value="10"/>
+      <properties xsi:type="designtime:SimpleProperty" name="PRECISION" value="10"/>
+    </extendedProperties>
+  </properties>
+</element:Concept>

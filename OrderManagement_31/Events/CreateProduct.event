@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<event:SimpleEvent xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:event="http:///com/tibco/cep/designtime/core/model/event" folder="/Events/" name="CreateProduct" description="" GUID="E2E15860-C3F3-9EE2-F2DC-353C3D65C9D8" ownerProjectName="OrderManagement_31" superEventPath="/Events/Products" ttlUnits="Seconds">
+  <expiryAction name="CreateProduct_expiryAction" ownerProjectName="OrderManagement_31" actionText="" conditionText="">
+    <symbols>
+      <symbolList idName="createproduct" type="/Events/CreateProduct"/>
+    </symbols>
+  </expiryAction>
+</event:SimpleEvent>

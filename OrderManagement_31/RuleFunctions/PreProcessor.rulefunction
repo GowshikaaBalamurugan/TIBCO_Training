@@ -1,0 +1,16 @@
+/**
+ * @description Closes requests from the HTTP server
+ */
+void rulefunction RuleFunctions.PreProcessor {
+	attribute {
+		validity = ACTION;
+	}
+	scope {
+		
+		Events.CreateProduct request;
+	}
+	body {
+		Event.replyEvent(request,request);
+		//Cluster.DataGrid.CacheLoadConceptByExtIdByUri(request.Product_ID,false,"/Concepts/Product");
+	}
+}

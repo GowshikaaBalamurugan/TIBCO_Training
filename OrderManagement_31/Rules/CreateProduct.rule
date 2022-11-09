@@ -1,0 +1,33 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.CreateProduct {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		Events.CreateProduct eProduct;
+		Events.Login eLogin;
+		Concepts.User cUser;
+	}when {
+		eLogin.UserID=="Admin";
+		eLogin.password==cUser.password;
+	}
+	
+	then {
+	//	Concepts.Product.Product(eProduct.Product_ID,eProduct.Product_ID,eProduct.Product_Name,eProduct.Price,eProduct.Quantity);
+        Database.setCurrentConnection("/SharedResources/Test_JDBC");
+		Database.beginTransaction();
+		System.debugOut("#### DB Concept ####### " );
+		Database.test.dbo.Product dProduct=Instance.createInstance("xslt://{{/Database/test/dbo/Product}}<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"2.0\"><xsl:param name=\"eProduct\"/><xsl:template name=\"Function\" match=\"/\"><createObject><object><xsl:if test=\"$eProduct/Product_ID\"><xsl:attribute name=\"extId\"><xsl:value-of select=\"$eProduct/Product_ID\"/></xsl:attribute></xsl:if><xsl:if test=\"$eProduct/Product_ID\"><Product_ID><xsl:value-of select=\"$eProduct/Product_ID\"/></Product_ID></xsl:if><xsl:if test=\"$eProduct/Product_Name\"><Product_Name><xsl:value-of select=\"$eProduct/Product_Name\"/></Product_Name></xsl:if><xsl:if test=\"$eProduct/Price\"><Price><xsl:value-of select=\"$eProduct/Price\"/></Price></xsl:if><xsl:if test=\"$eProduct/Quantity\"><Quantity><xsl:value-of select=\"$eProduct/Quantity\"/></Quantity></xsl:if></object></createObject></xsl:template></xsl:stylesheet>");
+    	System.debugOut("#### Insert into Database ####### " );
+		Database.insert(dProduct);
+		System.debugOut("#### Added Product " + eProduct.Product_Name);
+		Database.commit();
+	    Event.consumeEvent(eProduct);	
+	Database.unsetConnection();
+	
+	}
+}

@@ -1,0 +1,21 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.ProcessOrder {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		Events.ProcessOrder eProcessOrder;
+		Concepts.Order cOrder;
+	}
+	when {
+	}
+	then {
+        cOrder.Status="Order Processed and Dispatched";
+        Event.consumeEvent(eProcessOrder);
+        Events.deliveroutOrder.scheduledeliveroutOrder(90,"",0);
+	}
+}

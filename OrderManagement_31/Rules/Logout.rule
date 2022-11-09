@@ -1,0 +1,20 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.Logout {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+		Events.Logout eLogout;
+		Concepts.User eUser;
+	}
+	when {
+		
+	}
+	then {
+		eUser.logedIn=false;
+	}
+}

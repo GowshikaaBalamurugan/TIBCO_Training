@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element:Concept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:element="http:///com/tibco/cep/designtime/core/model/element" folder="/Concepts/" name="User" description="" GUID="343ABEAB-420A-E8AB-DAF7-75A17F8ED141" ownerProjectName="OrderManagement_31" superConceptPath="" autoStartStateMachine="true">
+  <extendedProperties/>
+  <properties name="UserID" ownerProjectName="OrderManagement_31"/>
+  <properties name="UserName" ownerProjectName="OrderManagement_31"/>
+  <properties name="Address" ownerProjectName="OrderManagement_31"/>
+  <properties name="password" ownerProjectName="OrderManagement_31"/>
+  <properties name="logedIn" ownerProjectName="OrderManagement_31" type="boolean"/>
+</element:Concept>

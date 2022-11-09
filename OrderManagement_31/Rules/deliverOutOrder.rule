@@ -1,0 +1,21 @@
+/**
+ * @description 
+ * @author Gowshikaa
+ */
+rule Rules.deliverOutOrder {
+	attribute {
+		priority = 5;
+		forwardChain = true;
+	}
+	declare {
+	Events.deliveroutOrder	edeliveroutOrder;
+	Concepts.Order cOrder;
+	}
+	when {
+	}
+	then {
+        cOrder.Status="Out For Delivery";
+        Event.consumeEvent(edeliveroutOrder);
+        Events.triggerDelivery.scheduletriggerDelivery(90,"",0);
+	}
+}
